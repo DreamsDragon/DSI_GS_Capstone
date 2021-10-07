@@ -75,7 +75,7 @@ if __name__ == "__main__":
     download_data()
     data_path = str(argv[1])
 
-    drug_util_df = pd.read_csv(pathlib.Path(data_path,"All States_drug_utilization.csv"))
-    describe_data(drug_util_df,"All States Drug Utilization")
-    drug_util_df = pd.read_csv(pathlib.Path(data_path,"Federal Upper Limit_drug_cost.csv"))
-    describe_data(drug_util_df,"Federal Upper Limit Drug Cost")
+    #drug_util_df = pd.read_csv(pathlib.Path(data_path,"All States_drug_utilization.csv"))
+    #describe_data(drug_util_df,"All States Drug Utilization")
+    #drug_util_df = pd.read_csv(pathlib.Path(data_path,"Federal Upper Limit_drug_cost.csv"))
+    #describe_data(drug_util_df,"Federal Upper Limit Drug Cost")
