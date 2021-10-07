@@ -1,5 +1,6 @@
 import pandas as pd
-from df_string_process import process_columns
+from utils import process_columns,describe_data
+
 if __name__ == "__main__":
     from sys import argv
     from pathlib import Path
@@ -8,3 +9,4 @@ if __name__ == "__main__":
     processed_df = processed_df.reset_index()
     processed_df = process_columns(processed_df,["product_name"])
     processed_df.to_csv(Path(argv[2]),index=False)
+    describe_data(processed_df,"drug utilization",argv[3])
