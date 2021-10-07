@@ -12,5 +12,5 @@ def process_columns(df, columns):
         pandas dataframe: preprocessed dataframe
     """
     for column in columns:
-        df[column] = df[column].str.upper().str.strip().str.replace('\W', '')
+        df[column] = df[column].str.upper().str.strip().str.replace('\W+', '')
     return df
