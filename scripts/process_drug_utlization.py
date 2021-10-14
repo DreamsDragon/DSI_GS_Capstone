@@ -9,6 +9,10 @@ if __name__ == "__main__":
     du_product_path = Path(argv[2]) # Path to ndc product csv
     output_path = Path(argv[3]) # Output directory
     df = pd.read_csv(du_data_path,dtype= str) # Read du data
+    df = df[["product_name","labeler_code","product_code","year","quarter","ndc","number_of_prescriptions"]]
+    df.dropna(inplace=True)
+    df.number_of_prescriptions = df.number_of_prescriptions.str.strip()
+    df["number_of_prescriptions"] = df["number_of_prescriptions"].astype("float")
     df["two_level_ndc"] = df["labeler_code"].astype(str) +"-"+ df["product_code"].astype(str) # Createm two level ndc as its only one available in product ndc map
     product_df = pd.read_csv(du_product_path,encoding='cp1252') # Read prodct ndc map
     product_df = product_df[product_df["MARKETINGCATEGORYNAME"] == "NDA"] # Remove BLAs and only take NDA
